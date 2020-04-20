@@ -2341,8 +2341,12 @@
 
         if (element.hasClass('input-group')) {
             // in case there is more then one 'input-group-addon' Issue #48
+            // issue - BS4.4 dropped support for input-group-addon -- changed to input-group-text
             if (element.find('.datepickerbutton').length === 0) {
-                component = element.find('.input-group-append');
+                component = element.find('.input-group-text');
+                if(component.length === 0){
+                    component = element.find('.input-group-addon');
+                }
             } else {
                 component = element.find('.datepickerbutton');
             }
