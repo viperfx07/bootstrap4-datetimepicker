@@ -1099,6 +1099,7 @@
 
                 togglePicker: function (e) {
                     var $this = $(e.target),
+                        $link = $this.closest('a'),
                         $parent = $this.closest('ul'),
                         expanded = $parent.find('.show'),
                         closed = $parent.find('.collapse:not(.show)'),
@@ -1118,8 +1119,18 @@
                         }
                         if ($this.is('i')) {
                             $this.toggleClass(options.icons.time + ' ' + options.icons.date);
+                            if ($this.hasClass(options.icons.date)) {
+                                $link.attr('title', options.tooltips.selectDate);
+                            } else {
+                                $link.attr('title', options.tooltips.selectTime);
+                            }
                         } else {
                             $this.find('i').toggleClass(options.icons.time + ' ' + options.icons.date);
+                            if ($this.hasClass(options.icons.date)) {
+                                $link.attr('title', options.tooltips.selectDate);
+                            } else {
+                                $link.attr('title', options.tooltips.selectTime);
+                            }
                         }
 
                         // NOTE: uncomment if toggled state will be restored in show()
@@ -2499,7 +2510,8 @@
             incrementSecond: 'Increment Second',
             decrementSecond: 'Decrement Second',
             togglePeriod: 'Toggle Period',
-            selectTime: 'Select Time'
+            selectTime: 'Select Time',
+            selectDate: 'Select Date'
         },
         useStrict: false,
         sideBySide: false,
