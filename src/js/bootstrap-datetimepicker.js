@@ -2355,7 +2355,7 @@
             // issue - BS4.4 dropped support for input-group-addon -- changed to input-group-text
             if (element.find('.datepickerbutton').length === 0) {
                 component = element.find('.input-group-text');
-                if(component.length === 0){
+                if (component.length === 0) {
                     component = element.find('.input-group-addon');
                 }
             } else {
