@@ -541,6 +541,9 @@
                 if (options.enabledDates && granularity === 'd' && !isInEnabledDates(targetMoment)) {
                     return false;
                 }
+                if (options.enabledDates && options.enabledDatesForMonths && granularity === 'M' && !isInEnabledDates(targetMoment)) {
+                    return false;
+                }
                 if (options.minDate && targetMoment.isBefore(options.minDate, granularity)) {
                     return false;
                 }
@@ -2474,6 +2477,7 @@
         defaultDate: false,
         disabledDates: false,
         enabledDates: false,
+        enabledDatesForMonths: false,
         icons: {
             time: 'fa fa-clock-o',
             date: 'fa fa-calendar',
