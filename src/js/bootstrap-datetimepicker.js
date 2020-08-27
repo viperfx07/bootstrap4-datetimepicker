@@ -541,7 +541,7 @@
                 if (options.enabledDates && granularity === 'd' && !isInEnabledDates(targetMoment)) {
                     return false;
                 }
-                if (options.enabledDates && options.enabledDatesForMonths && granularity === 'M' && !isInEnabledDates(targetMoment)) {
+                if (options.enabledDates && options.useEnabledDatesForMonths && granularity === 'M' && !isInEnabledDates(targetMoment)) {
                     return false;
                 }
                 if (options.minDate && targetMoment.isBefore(options.minDate, granularity)) {
@@ -1659,16 +1659,16 @@
             return picker;
         };
 
-        picker.enabledDatesForMonths = function (enabledDatesForMonths) {
+        picker.useEnabledDatesForMonths = function (useEnabledDatesForMonths) {
             if (arguments.length === 0) {
-                return options.enabledDatesForMonths;
+                return options.useEnabledDatesForMonths;
             }
 
-            if (typeof enabledDatesForMonths !== 'boolean') {
-                throw new TypeError('enabledDatesForMonths() expects a boolean parameter');
+            if (typeof useEnabledDatesForMonths !== 'boolean') {
+                throw new TypeError('useEnabledDatesForMonths() expects a boolean parameter');
             }
 
-            options.enabledDatesForMonths = enabledDatesForMonths;
+            options.useEnabledDatesForMonths = useEnabledDatesForMonths;
             return picker;
         };
 
@@ -2490,7 +2490,7 @@
         defaultDate: false,
         disabledDates: false,
         enabledDates: false,
-        enabledDatesForMonths: false,
+        useEnabledDatesForMonths: false,
         icons: {
             time: 'fa fa-clock-o',
             date: 'fa fa-calendar',
