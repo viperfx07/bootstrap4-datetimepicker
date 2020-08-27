@@ -1659,6 +1659,19 @@
             return picker;
         };
 
+        picker.enabledDatesForMonths = function (enabledDatesForMonths) {
+            if (arguments.length === 0) {
+                return options.enabledDatesForMonths;
+            }
+
+            if (typeof enabledDatesForMonths !== 'boolean') {
+                throw new TypeError('enabledDatesForMonths() expects a boolean parameter');
+            }
+
+            options.enabledDatesForMonths = enabledDatesForMonths;
+            return picker;
+        };
+
         picker.daysOfWeekDisabled = function (daysOfWeekDisabled) {
             if (arguments.length === 0) {
                 return options.daysOfWeekDisabled.splice(0);
